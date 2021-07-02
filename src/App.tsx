@@ -1,8 +1,11 @@
-import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+/**
+ *  This is Entrypoint Component!
+ * @return {JSX.Element} JSX code for App Component!
+ */
+function App(): JSX.Element {
   return (
     <div className="App">
       <header className="App-header">

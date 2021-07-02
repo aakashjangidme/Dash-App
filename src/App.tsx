@@ -10,6 +10,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
+  appbarSpacer: {
+    [theme.breakpoints.down('xs')]: {
+      ...theme.mixins.toolbar,
+    },
+  },
 }));
 
 const App = () => {
@@ -20,6 +25,7 @@ const App = () => {
       <Router>
         <SideNav />
         <div>
+          <div className={classes.appbarSpacer}> </div>
           <Switch>
             {routes.map((route, index) => {
               return (

@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SideMenuItem = (props: ISideMenuItem) => {
-  const { label, icon, activeIcon, to } = props;
+  const { label, icon, activeIcon, to, onClick } = props;
   const classes = useStyles();
   const [active, setActive] = useState(true);
   const location = useLocation();
@@ -60,6 +60,7 @@ const SideMenuItem = (props: ISideMenuItem) => {
         button
         className={clsx(classes.menuItem, active && classes.menuItemActive)}
         component={renderLink}
+        onClick={onClick}
       >
         <ListItemIcon>
           <Icon>

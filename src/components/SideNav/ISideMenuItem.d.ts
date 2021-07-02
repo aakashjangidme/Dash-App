@@ -4,4 +4,5 @@ export default interface ISideMenuItem {
   activeIcon?: any;
   to?: string | LocationDescriptor<unknown>;
   component?: any;
+  onClick?: any;
 }

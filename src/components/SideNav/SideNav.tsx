@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
-import { Typography, IconButton } from '@material-ui/core';
+import {
+  AppBar,
+  IconButton,
+  Toolbar,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@material-ui/core';
 
 // assets
 import logo1 from '../../assets/logo1.svg';
@@ -18,16 +25,45 @@ import clsx from 'clsx';
 
 const SideNav = () => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
-  const toggleDrawer = () => {
+  const [open, setOpen] = React.useState<boolean>(true);
+  const toggleNavigationDrawer = () => {
     setOpen(!open);
   };
 
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('xs'));
+
+  const closeNavigation = () => {
+    if (matches) setOpen(false);
+  };
+
+  useEffect(() => {
+    if (matches) {
+      closeNavigation();
+    }
+  }, [matches]);
+
   return (
     <div className={classes.root}>
+      <AppBar className={classes.appbar}>
+        <Toolbar>
+          <IconButton
+            aria-label="menu"
+            onClick={toggleNavigationDrawer}
+            edge="start"
+            color="inherit"
+          >
+            <MenuIcon />
+          </IconButton>
+
+          <Typography color="inherit" component="h1" variant="h6">
+            Dash
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <Drawer
         anchor="left"
-        variant="permanent"
+        variant={matches ? 'temporary' : 'permanent'}
         open={open}
         classes={{
           paper: clsx(
@@ -48,7 +84,7 @@ const SideNav = () => {
           <IconButton
             aria-label="open/close drawer"
             edge="start"
-            onClick={toggleDrawer}
+            onClick={toggleNavigationDrawer}
           >
             {open ? <ChevronLeft /> : <MenuIcon />}
           </IconButton>
@@ -73,6 +109,7 @@ const SideNav = () => {
                 to={k.to}
                 icon={k.icon}
                 activeIcon={k.activeIcon}
+                onClick={closeNavigation}
               />
             </React.Fragment>
           ))}

@@ -5,6 +5,13 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
+  appbar: {
+    background: '#6EC177',
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+    },
+  },
+
   drawer: {
     width: drawerWidth,
     flexShrink: 0,

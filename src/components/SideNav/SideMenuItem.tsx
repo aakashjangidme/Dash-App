@@ -38,7 +38,7 @@ const SideMenuItem = (props: ISideMenuItem) => {
   const location = useLocation();
 
   useEffect(() => {
-    if (to === 'sign-out') {
+    if (to === '/sign-out') {
       setActive(true);
       return;
     }

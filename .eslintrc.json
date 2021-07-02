@@ -16,6 +16,12 @@
   "rules": {
     "react/react-in-jsx-scope": "off",
     "no-unused-vars": "warn"
+    // "no-restricted-imports": [
+    //   "warn",
+    //   {
+    //     "patterns": ["@material-ui/*/*/*", "!@material-ui/core/test-utils/*"]
+    //   }
+    // ]
   },
   "settings": {
     "react": {

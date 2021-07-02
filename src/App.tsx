@@ -1,11 +1,13 @@
-import { CssBaseline } from '@material-ui/core';
-import SideNav from './Components/SideNav/SideNav';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import ComingSoon from './Components/ComingSoon';
+// import SideNav from './Components/SideNav/SideNav';
 
 const App = () => {
   return (
     <>
       <CssBaseline />
-      <SideNav />
+      {/* <SideNav /> */}
+      <ComingSoon />
     </>
   );
 };
